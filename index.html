@@ -193,7 +193,7 @@ function render(){
     <h2 class="sophia-name">${a.name}</h2>
     <p class="sophia-title">${tx(a.title)}</p>
     <p class="sophia-bio">${tx(a.intro)}</p>
-    <p class="sophia-bio">${tx(a.approach)}</p>
+    <p class="sophia-bio" style="margin-top:.75rem">${tx(a.approach)}</p>
     <div class="sophia-tags">${tx(a.credentials).map(c=>`<span class="sophia-tag">${c}</span>`).join('')}</div>
     <div style="margin-top:1.75rem;display:flex;gap:1rem;flex-wrap:wrap">
       <a href="pages/contact.html" class="btn-primary">${l==='en'?'Book a Call with Sophia':'소피아와 미팅 예약'}</a>
