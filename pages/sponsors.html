@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>For Sponsors — Aurum Sports Management</title>
+<meta name="description" content="Partner with Aurum to reach Korean and Korean-American golf audiences through elite LPGA athletes."/>
+<meta name="theme-color" content="#0B1829"/>
+<meta property="og:title" content="For Sponsors — Aurum Sports Management"/>
+<meta property="og:description" content="Strategic sponsorship access to elite LPGA athletes and Korean golf audiences."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://aurumsm.com/pages/sponsors.html"/>
+<meta property="og:image" content="https://aurumsm.com/images/players/robyn-choi.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="For Sponsors — Aurum Sports Management"/>
+<meta name="twitter:description" content="Strategic sponsorship access to elite LPGA athletes and Korean golf audiences."/>
+<meta name="twitter:image" content="https://aurumsm.com/images/players/robyn-choi.jpg"/>
+<link rel="canonical" href="https://aurumsm.com/pages/sponsors.html"/>
+<link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<nav id="main-nav"></nav>
+<div id="win-banner"></div>
+
+<div class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Home</a><span>›</span><span id="bc"></span></p>
+    <h1 id="ph1"></h1><p id="ph-sub"></p>
+  </div>
+</div>
+
+<!-- WHY KOREAN -->
+<section class="sec sec-white">
+  <div class="wrap">
+    <div class="sp-split">
+      <div>
+        <span class="lbl" id="wk-lbl"></span>
+        <h2 class="h2" id="wk-title"></h2>
+        <p style="font-size:15px;color:var(--txt2);line-height:1.75;margin-bottom:1.5rem" id="wk-body"></p>
+        <ul class="reach-list" id="wk-list"></ul>
+      </div>
+      <div class="sp-callout">
+        <h3 id="sc-title"></h3>
+        <p id="sc-body"></p>
+        <a href="../pages/contact.html" class="btn-primary" id="sc-btn"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROSTER -->
+<!-- <section class="sec sec-white">
+  <div class="wrap">
+    <span class="lbl" id="ro-lbl"></span>
+    <h2 class="h2" id="ro-title"></h2>
+    <p class="sub" id="ro-sub"></p>
+    <div class="player-grid" id="roster-grid"></div>
+  </div>
+</section> -->
+
+<!-- SPONSOR TIERS -->
+<section class="sec sec-cream">
+  <div class="wrap">
+    <span class="lbl" id="st-lbl"></span>
+    <h2 class="h2" id="st-title"></h2>
+    <p class="sub" id="st-sub"></p>
+    <div id="tiers"></div>
+    <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="../pages/contact.html" class="btn-primary" id="st-btn1"></a>
+      <a href="../players.html"       class="btn-outline" id="st-btn2"></a>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="player-modal">
+  <div class="modal-box">
+    <div class="modal-bar"><button id="modal-close">✕</button></div>
+    <div id="modal-body" style="padding:0 1.75rem 2rem"></div>
+  </div>
+</div>
+
+<footer id="main-footer"></footer>
+<script src="../js/data.js"></script>
+<script src="../js/main.js"></script>
+<script>
+Aurum.init('sponsors');
+function render(){
+  const l = Aurum.getLang();
+  document.getElementById('bc').textContent      = l==='en'?'For Sponsors':'스폰서';
+  document.getElementById('ph1').innerHTML       = l==='en'?'Partner with <em>Aurum</em>':'<em>Aurum</em>과 파트너가 되세요';
+  document.getElementById('ph-sub').textContent  = l==='en'?'Reach the most passionate golf market in the world — Korean and Korean-American fans.':'세계에서 가장 열정적인 골프 시장 — 한국 및 재미교포 팬에게 도달하세요.';
+
+  document.getElementById('wk-lbl').textContent   = l==='en'?'Why Korean Golf?':'왜 한국 골프인가?';
+  document.getElementById('wk-title').textContent  = l==='en'?'The Most Dominant Force in Women\'s Golf':'여자 골프에서 가장 강력한 힘';
+  document.getElementById('wk-body').textContent   = l==='en'
+    ? 'Korean women have won more than 40% of LPGA events over the last decade, dominating world rankings and commanding passionate, brand-loyal fan bases across South Korea, Japan, and the Korean-American diaspora.'
+    : '지난 10년간 LPGA 대회의 40% 이상을 한국 선수가 우승했습니다. 세계 랭킹을 석권하며 한국, 일본, 재미교포에 걸쳐 브랜드 충성도가 높은 팬층을 보유합니다.';
+
+  const listItems = l==='en'
+    ? ['LPGA Tour broadcasts reach millions in South Korea, Japan & the US','Korean fans have some of the highest brand-recall rates in sports','Aurum athletes bridge US and Asian markets simultaneously','Bilingual athletes create authentic content for both audiences','Sponsoring an Aurum athlete = entering the Korean consumer economy']
+    : ['LPGA 투어 방송은 한국, 일본, 미국에서 수백만 명에게 도달','한국 팬은 스포츠 중 브랜드 회상률이 가장 높은 편','Aurum 선수들은 미국과 아시아 시장을 동시에 연결','이중언어 선수들이 양 시장에 진정성 있는 콘텐츠 제공','Aurum 선수 스폰서 = 한국 소비자 경제 진입'];
+  document.getElementById('wk-list').innerHTML = listItems.map(i=>`<li>${i}</li>`).join('');
+
+  document.getElementById('sc-title').textContent = l==='en'?'Start a Conversation':'대화를 시작하세요';
+  document.getElementById('sc-body').textContent  = l==='en'
+    ? 'Sophia works directly with brand managers and marketing teams to build sponsorship packages that fit your goals — from full title sponsorship to targeted digital placements.'
+    : '소피아는 브랜드 매니저 및 마케팅 팀과 직접 협력하여 목표에 맞는 스폰서십 패키지를 구성합니다. 전체 타이틀 스폰서십부터 타겟 디지털 배치까지.';
+  document.getElementById('sc-btn').textContent   = l==='en'?'Schedule a Call':'미팅 예약';
+
+  // document.getElementById('ro-lbl').textContent   = l==='en'?'Our Athletes':'소속 선수단';
+  // document.getElementById('ro-title').textContent  = l==='en'?'Current Roster':'현재 선수단';
+  // document.getElementById('ro-sub').textContent    = l==='en'?'Click any player to explore their profile and sponsorship availability.':'선수를 클릭하여 프로필과 스폰서십 가능 여부를 확인하세요.';
+  // document.getElementById('roster-grid').innerHTML = PLAYERS.map(p=>Aurum.playerCard(p,false)).join('');
+
+  document.getElementById('st-lbl').textContent   = l==='en'?'Sponsorship Levels':'스폰서십 레벨';
+  document.getElementById('st-title').textContent  = l==='en'?'Partnership Tiers':'파트너십 등급';
+  document.getElementById('st-sub').textContent    = l==='en'?'Available for each athlete individually — mix and match across the roster.':'각 선수별로 개별 제공됩니다. 선수단 전체에서 선택 가능합니다.';
+  document.getElementById('tiers').innerHTML       = Aurum.sponsorTiersHTML();
+  document.getElementById('st-btn1').textContent   = l==='en'?'Request Sponsorship Deck':'스폰서십 자료 요청';
+  document.getElementById('st-btn2').textContent   = l==='en'?'View Full Roster':'전체 선수단 보기';
+}
+render(); document.addEventListener('aurum:lang', render);
+</script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Player — Aurum Sports Management</title>
+<meta name="description" content="Player profile — Aurum Sports Management"/>
+<meta name="theme-color" content="#0B1829"/>
+<meta property="og:title" content="Player Profile — Aurum Sports Management"/>
+<meta property="og:description" content="Explore player achievements, stats, results, and sponsorship opportunities."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://aurumsm.com/player.html"/>
+<meta property="og:image" content="https://aurumsm.com/images/players/mi-hyang-lee.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Player Profile — Aurum Sports Management"/>
+<meta name="twitter:description" content="Explore player achievements, stats, results, and sponsorship opportunities."/>
+<meta name="twitter:image" content="https://aurumsm.com/images/players/mi-hyang-lee.jpg"/>
+<link rel="canonical" href="https://aurumsm.com/player.html"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<nav id="main-nav"></nav>
+<div id="win-banner"></div>
+<div id="player-page"></div>
+<footer id="main-footer"></footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+function renderPlayer() {
+  // Ensure data is loaded before rendering
+  if (typeof PLAYERS === 'undefined' || !PLAYERS.length) {
+    console.warn('[Player page] PLAYERS not ready, retrying...');
+    requestAnimationFrame(renderPlayer);
+    return;
+  }
+
+  // Extract player ID from hash route: #/player/mi-hyang-lee
+  const hashMatch = location.hash.match(/#\/player\/([^/]+)/);
+  const id = hashMatch ? hashMatch[1] : null;
+  const p  = PLAYERS.find(x => x.id === id);
+  const l  = Aurum.getLang();
+  const tx = Aurum.tx.bind(Aurum);
+
+  if (!p) {
+    document.getElementById('player-page').innerHTML = `
+      <div class="wrap" style="padding:5rem 0;text-align:center">
+        <h2 style="font-family:'Playfair Display',serif;margin-bottom:1rem">${l === 'en' ? 'Player Not Found' : '선수를 찾을 수 없습니다'}</h2>
+        <p style="color:var(--txt2);margin-bottom:1rem">${l === 'en' ? 'We couldn\'t find the player you\'re looking for.' : '찾으신 선수를 찾을 수 없습니다.'}</p>
+        <p style="color:var(--txt3);font-size:13px;margin-bottom:1.5rem">
+          ${l === 'en' ? 'ID requested: ' : '요청한 ID: '}
+          <code style="background:var(--gold4);padding:2px 8px;border-radius:4px;font-family:monospace">${id || '(none)'}</code>
+        </p>
+        <a href="${l === 'en' ? 'index.html#/' : 'index.html#/'}" class="btn-primary">← ${l === 'en' ? 'Back to Home' : '홈으로 돌아가기'}</a>
+        <div style="margin-top:1rem"><a href="index.html#/player/mi-hyang-lee" class="btn-outline" style="display:inline-block">👉 ${l === 'en' ? 'Try Mi Hyang Lee' : 'Mi Hyang Lee 프로필 보기'}</a></div>
+      </div>`;
+    console.warn(`[Player page] Player ID "${id}" not found.`);
+    return;
+  }
+
+  // Update page title and meta
+  document.title = `${tx(p.name)} — Aurum Sports Management`;
+
+  // Stat cards — purely data-driven from displayStats array
+  const statCards = p.displayStats.map(s => `
+    <div class="qs-card">
+      <span class="qs-n">${s.value}</span>
+      <span class="qs-l">${tx(s.label)}</span>
+    </div>`).join('');
+
+  // Highlights
+  const highlights = tx(p.highlights).map(h => `<li>${h}</li>`).join('');
+
+  // Results table
+  const rows = p.results.map(r => {
+    const win = ['Winner', '1st', '1st (Medalist)'].includes(r.result);
+    return `<tr class="${win ? 'win-row' : ''}">
+      <td>${r.year}</td>
+      <td><span class="t-pill t-${r.tour.toLowerCase()}">${r.tour}</span></td>
+      <td>${r.event}</td>
+      <td class="${win ? 'win-cell' : ''}">${r.result}</td>
+    </tr>`;
+  }).join('');
+
+  // Sponsorship tags
+  const mrTags  = tx(p.sponsorship.marketReach).map(m => `<span class="r-tag">${m}</span>`).join('');
+  const catTags = tx(p.sponsorship.categories).map(c => `<span class="c-tag">${c}</span>`).join('');
+
+  // Extra detail line (college, dob, etc.)
+  const extras = [
+    p.college    ? p.college : null,
+    p.dob        ? (l === 'ko' ? `생년월일: ${p.dob}` : `Born: ${p.dob}`) : null,
+  ].filter(Boolean).join(' · ');
+
+  document.getElementById('player-page').innerHTML = `
+
+    <!-- PAGE HERO / BREADCRUMB -->
+    <div class="page-hero">
+      <div class="wrap">
+        <p class="breadcrumb">
+          <a href="index.html">Home</a><span>›</span>
+          <a href="players.html">${l === 'en' ? 'Our Roster' : '선수단'}</a><span>›</span>
+          <span>${tx(p.name)}</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- PLAYER HERO -->
+    <div class="sec-white">
+      <div class="wrap">
+        <div class="player-pg-hero">
+
+          <!-- PHOTO -->
+          <div class="player-pg-photo">
+            <span class="player-pg-initial">${tx(p.name).charAt(0)}</span>
+            <img src="${p.photo}" alt="${tx(p.name)}" onerror="this.style.opacity=0"/>
+          </div>
+
+          <!-- INFO -->
+          <div>
+            <span class="tour-badge badge-lpga">${p.tour} Tour</span>
+            <h1 class="player-pg-name">${tx(p.name)}</h1>
+            ${p.name.ko !== tx(p.name) ? `<p class="player-pg-name-ko">${p.name.ko}</p>` : ''}
+            <p class="player-pg-meta">
+              ${tx(p.nationality)} ${p.flag}
+              ${p.birthplace ? ' · ' + tx(p.birthplace) : ''}
+              ${extras ? ' · ' + extras : ''}
+            </p>
+            <p class="player-pg-bio">${tx(p.bio)}</p>
+
+            <!-- STAT CARDS — rendered from displayStats, no hardcoding -->
+            <div class="qstats">${statCards}</div>
+
+            <div style="display:flex;gap:1rem;flex-wrap:wrap">
+              ${Aurum.deckBtn(p)}
+              <a href="players.html" class="btn-outline">
+                ${l === 'en' ? '← All Players' : '← 전체 선수단'}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAREER HIGHLIGHTS -->
+    <div class="player-sec alt">
+      <div class="player-sec-inner">
+        <span class="lbl">${l === 'en' ? 'Career Highlights' : '주요 커리어'}</span>
+        <ul class="hl-list">${highlights}</ul>
+      </div>
+    </div>
+
+    <!-- TOURNAMENT RESULTS -->
+    <div class="player-sec">
+      <div class="player-sec-inner">
+        <span class="lbl">${l === 'en' ? 'Tournament Results' : '대회 성적'}</span>
+        <div class="tbl-wrap">
+          <table class="res-table">
+            <thead>
+              <tr>
+                <th>${l === 'en' ? 'Year' : '연도'}</th>
+                <th>Tour</th>
+                <th>${l === 'en' ? 'Event' : '대회'}</th>
+                <th>${l === 'en' ? 'Result' : '성적'}</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPONSORSHIP -->
+    <div class="player-sec alt">
+      <div class="player-sec-inner">
+        <span class="lbl">${l === 'en' ? 'Sponsorship Opportunity' : '스폰서십 기회'}</span>
+
+        <div style="margin-bottom:1.5rem">
+          <p class="reach-group-label">${l === 'en' ? 'Market Reach' : '시장 도달'}</p>
+          <div class="reach-tags">${mrTags}</div>
+          <p class="reach-group-label" style="margin-top:1rem">${l === 'en' ? 'Open Categories' : '오픈 카테고리'}</p>
+          <div class="reach-tags">${catTags}</div>
+        </div>
+
+        ${Aurum.sponsorTiersHTML()}
+
+        <div class="sp-ctas">
+          ${Aurum.deckBtn(p)}
+          <a href="pages/contact.html?player=${p.id}" class="btn-outline">
+            ${l === 'en' ? 'Contact Us' : '문의하기'}
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Initialize and render once data is available
+Aurum.init('roster');
+renderPlayer();
+document.addEventListener('aurum:lang', renderPlayer);
+</script>
+</body>
+</html>

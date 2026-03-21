@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Our Roster — Aurum Sports Management</title>
+<meta name="description" content="Meet the Aurum Sports Management roster — elite LPGA professional golfers available for sponsorship."/>
+<meta name="theme-color" content="#0B1829"/>
+<meta property="og:title" content="Our Roster — Aurum Sports Management"/>
+<meta property="og:description" content="Meet Aurum's elite LPGA roster and explore athlete sponsorship opportunities."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://aurumsm.com/players.html"/>
+<meta property="og:image" content="https://aurumsm.com/images/players/alicia-joo.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Our Roster — Aurum Sports Management"/>
+<meta name="twitter:description" content="Meet Aurum's elite LPGA roster and explore athlete sponsorship opportunities."/>
+<meta name="twitter:image" content="https://aurumsm.com/images/players/alicia-joo.jpg"/>
+<link rel="canonical" href="https://aurumsm.com/players.html"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<nav id="main-nav"></nav>
+<div id="win-banner"></div>
+
+<div class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a><span>›</span><span id="bc"></span></p>
+    <h1 id="ph1"></h1>
+    <p id="ph-sub"></p>
+  </div>
+</div>
+
+<section class="sec sec-white">
+  <div class="wrap">
+    <div class="player-grid" id="roster-grid"></div>
+  </div>
+</section>
+
+<section class="sec-sm sec-cream" style="border-top:.5px solid var(--border)">
+  <div class="wrap" style="text-align:center">
+    <span class="lbl" id="sp-lbl"></span>
+    <h2 class="h2" id="sp-title"></h2>
+    <p class="sub" style="margin:0 auto 2rem" id="sp-sub"></p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="pages/sponsors.html" class="btn-primary" id="sp-cta1"></a>
+      <a href="pages/contact.html"  class="btn-outline" id="sp-cta2"></a>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="player-modal">
+  <div class="modal-box">
+    <div class="modal-bar"><button id="modal-close">✕</button></div>
+    <div id="modal-body" style="padding:0 1.75rem 2rem"></div>
+  </div>
+</div>
+
+<footer id="main-footer"></footer>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+Aurum.init('roster');
+function render(){
+  const l = Aurum.getLang();
+  document.getElementById('bc').textContent       = l==='en'?'Our Roster':'선수단';
+  document.getElementById('ph1').innerHTML        = l==='en'?'Our <em>Roster</em>':'소속 <em>선수단</em>';
+  document.getElementById('ph-sub').textContent   = l==='en'?'Four elite professional golfers competing at the highest level worldwide.':'세계 최고 수준의 대회에서 활약하는 프로 골퍼 4명.';
+  document.getElementById('sp-lbl').textContent   = l==='en'?'For Sponsors':'스폰서';
+  document.getElementById('sp-title').textContent = l==='en'?'Interested in Sponsoring a Player?':'선수 스폰서십에 관심이 있으신가요?';
+  document.getElementById('sp-sub').textContent   = l==='en'?'Each athlete offers unique market reach across South Korea, the US, and beyond. Contact us to find the right fit.':'각 선수는 한국, 미국 등 다양한 시장의 도달 범위를 자랑합니다. 브랜드에 맞는 파트너십을 찾아드립니다.';
+  document.getElementById('sp-cta1').textContent  = l==='en'?'Request Sponsorship Deck':'스폰서십 자료 요청';
+  document.getElementById('sp-cta2').textContent  = l==='en'?'Contact Us':'문의하기';
+  document.getElementById('roster-grid').innerHTML = Aurum.visiblePlayers().map(p=>Aurum.playerCard(p,true)).join('');
+}
+render();
+document.addEventListener('aurum:lang', render);
+</script>
+</body>
+</html>

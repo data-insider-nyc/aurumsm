@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Aurum Sports Management — Elevating Champions</title>
+<meta name="description" content="Aurum Sports Management represents elite Korean and Korean-American LPGA professional golfers. Sponsorship, P-1 Visa, full career management. Dallas, Texas."/>
+<meta name="theme-color" content="#0B1829"/>
+<meta property="og:title" content="Aurum Sports Management — Elevating Champions"/>
+<meta property="og:description" content="Elite Korean and Korean-American LPGA golfer representation, sponsorship strategy, and P-1 visa coordination."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://aurumsm.com/"/>
+<meta property="og:image" content="https://aurumsm.com/images/players/mi-hyang-lee.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Aurum Sports Management — Elevating Champions"/>
+<meta name="twitter:description" content="Elite Korean and Korean-American LPGA golfer representation, sponsorship strategy, and P-1 visa coordination."/>
+<meta name="twitter:image" content="https://aurumsm.com/images/players/mi-hyang-lee.jpg"/>
+<link rel="canonical" href="https://aurumsm.com/"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<nav id="main-nav"></nav>
+<div id="win-banner"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-badge" id="hero-badge"></div>
+    <h1 id="hero-h1"></h1>
+    <p class="hero-sub" id="hero-sub"></p>
+    <div class="hero-ctas">
+      <a href="players.html" class="btn-primary" id="h-cta1"></a>
+      <a href="pages/sponsors.html" class="btn-ghost" id="h-cta2"></a>
+    </div>
+    <div class="hero-stats" id="hero-stats"></div>
+  </div>
+</section>
+
+<!-- ROSTER PREVIEW -->
+<section class="sec sec-white">
+  <div class="wrap">
+    <span class="lbl" id="r-lbl"></span>
+    <h2 class="h2" id="r-title"></h2>
+    <p class="sub" id="r-sub"></p>
+    <div class="player-grid" id="roster-grid"></div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <a href="players.html" class="btn-outline" id="r-all"></a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SNAPSHOT -->
+<section class="sec sec-dark">
+  <div class="wrap">
+    <span class="lbl" id="sv-lbl"></span>
+    <h2 class="h2 h2-light" id="sv-title"></h2>
+    <p class="sub sub-light" id="sv-sub"></p>
+    <div class="svc-grid" id="svc-grid"></div>
+    <div style="margin-top:2rem">
+      <a href="pages/services.html" class="btn-primary" id="sv-more"></a>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section class="sec sec-cream">
+  <div class="wrap">
+    <div class="sp-split">
+      <div>
+        <span class="lbl" id="sp-lbl"></span>
+        <h2 class="h2" id="sp-title"></h2>
+        <ul class="reach-list" id="sp-list"></ul>
+        <a href="pages/sponsors.html" class="btn-primary" id="sp-cta"></a>
+      </div>
+      <div class="sp-callout">
+        <h3 id="sp-why-t"></h3>
+        <p id="sp-why-p"></p>
+        <a href="pages/contact.html" class="btn-primary" id="sp-call"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOPHIA -->
+<section class="sec sec-white">
+  <div class="wrap">
+    <span class="lbl" id="ag-lbl"></span>
+    <div class="sophia-grid">
+      <div class="sophia-photo" id="ag-photo"></div>
+      <div id="ag-info"></div>
+    </div>
+  </div>
+</section>
+
+<!-- RECRUIT -->
+<section class="recruit-sec">
+  <div class="wrap">
+    <span class="lbl" id="rc-lbl"></span>
+    <h2 class="h2 h2-light" id="rc-title"></h2>
+    <p class="sub sub-light" style="margin:0 auto .5rem" id="rc-sub"></p>
+    <p class="recruit-note" id="rc-note"></p>
+    <div class="recruit-ctas">
+      <a href="pages/contact.html" class="btn-primary" id="rc-cta1"></a>
+      <a href="pages/visa.html" class="btn-ghost" id="rc-cta2"></a>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="player-modal">
+  <div class="modal-box">
+    <div class="modal-bar"><button id="modal-close">✕</button></div>
+    <div id="modal-body" style="padding:0 1.75rem 2rem"></div>
+  </div>
+</div>
+
+<footer id="main-footer"></footer>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+// Check if hash route is for a player page
+if (location.hash.match(/#\/player\//)) {
+  // Redirect to dedicated player page for cleaner rendering
+  const playerId = location.hash.match(/#\/player\/([^/]+)/)[1];
+  // Use player.html with hash routing
+  window.location.href = 'player.html#/player/' + playerId;
+}
+
+Aurum.init('home');
+
+function render(){
+  const l = Aurum.getLang();
+  const tx = Aurum.tx.bind(Aurum);
+
+  // Hero
+  document.getElementById('hero-badge').textContent =
+    l==='en' ? 'LPGA · Korean & Korean-American Golfers' : 'LPGA · 한국 및 재미교포 골퍼 전문 에이전시';
+  document.getElementById('hero-h1').innerHTML =
+    l==='en' ? 'Elevating <em>Champions</em><br>on the World Stage' : '세계 무대에서<br><em>챔피언</em>을 만들다';
+  document.getElementById('hero-sub').textContent =
+    l==='en' ? 'Aurum Sports Management represents elite Korean and Korean-American professional golfers — connecting athletes with sponsorships, managing visas, and building careers that last.'
+             : 'Aurum Sports Management는 한국 및 재미교포 프로 골퍼를 대표합니다. 스폰서십 연결, 비자 지원, 선수 커리어 전략까지 종합 매니지먼트를 제공합니다.';
+  document.getElementById('h-cta1').textContent = l==='en'?'View Our Roster':'선수단 보기';
+  document.getElementById('h-cta2').textContent = l==='en'?'Partner With Us':'파트너십 문의';
+  document.getElementById('hero-stats').innerHTML = [
+    {n:Aurum.visiblePlayers().filter(p=>p.active).length, l:l==='en'?'Athletes':'소속 선수'},
+    {n:1, l:l==='en'?'LPGA Win (2026)':'LPGA 우승 (2026)'},
+    {n:'P-1', l:l==='en'?'Visa Services':'비자 서비스'},
+    {n:'KR↔US', l:l==='en'?'Bridge Market':'한미 브릿지'}
+  ].map(s=>`<div><div class="stat-n">${s.n}</div><div class="stat-l">${s.l}</div></div>`).join('');
+
+  // Roster labels
+  document.getElementById('r-lbl').textContent   = l==='en'?'Our Athletes':'소속 선수단';
+  document.getElementById('r-title').textContent  = l==='en'?'Meet the Roster':'선수단 소개';
+  document.getElementById('r-sub').textContent    = l==='en'?'Four elite professional golfers competing at the highest level worldwide.':'세계 최고 수준의 대회에서 활약하는 프로 골퍼 4명.';
+  document.getElementById('r-all').textContent    = l==='en'?'View Full Roster':'전체 선수단 보기';
+  // Render cards
+  document.getElementById('roster-grid').innerHTML = Aurum.visiblePlayers().map(p=>Aurum.playerCard(p,false)).join('');
+
+  // Services
+  document.getElementById('sv-lbl').textContent   = l==='en'?'What We Do':'서비스 안내';
+  document.getElementById('sv-title').textContent  = l==='en'?'Full-Service Representation':'종합 선수 매니지먼트';
+  document.getElementById('sv-sub').textContent    = l==='en'?'From contract negotiation to immigration law, we handle every dimension of a professional golf career.':'계약 협상부터 이민법까지, 프로 골퍼의 커리어 전반을 책임집니다.';
+  document.getElementById('sv-more').textContent   = l==='en'?'See All Services':'전체 서비스 보기';
+  document.getElementById('svc-grid').innerHTML = SERVICES.representation.map(s=>`
+    <div class="svc-card ${s.featured?'feat':''}">
+      <div class="svc-icon">${s.icon}</div>
+      <h3>${tx(s.title)}${s.featured?`<span class="badge-key">${l==='ko'?'핵심':'Key'}</span>`:''}</h3>
+      <p>${tx(s.description)}</p>
+    </div>`).join('');
+
+  // Sponsors
+  document.getElementById('sp-lbl').textContent   = l==='en'?'For Sponsors & Partners':'스폰서 및 파트너사';
+  document.getElementById('sp-title').textContent  = l==='en'?'Reach the Korean Golf Market':'한국 골프 시장에 도달하세요';
+  document.getElementById('sp-cta').textContent    = l==='en'?'Request Sponsorship Deck':'스폰서십 자료 요청';
+  document.getElementById('sp-why-t').textContent  = l==='en'?'Why Korean Athletes?':'왜 한국 선수인가?';
+  document.getElementById('sp-why-p').textContent  = l==='en'
+    ? 'Korean women have won more than 40% of LPGA events over the last decade. They dominate world rankings and command some of golf\'s most passionate, brand-loyal fan bases.'
+    : '지난 10년간 LPGA 대회의 40% 이상을 한국 선수가 우승했습니다. 세계 랭킹을 석권하며 브랜드 충성도가 높은 팬층을 보유합니다.';
+  document.getElementById('sp-call').textContent   = l==='en'?'Schedule a Call':'미팅 예약';
+  const spItems = l==='en'
+    ? ['LPGA broadcast audience across South Korea, Japan, the US and beyond','Bilingual athletes with authentic Korean-American fan bases','Category-exclusive sponsorship opportunities available','Korean brand introductions to the US market via athlete partnerships']
+    : ['한국, 일본, 미국 등 LPGA 방송 시청자','한미 양국 팬층을 가진 이중언어 선수','카테고리 독점 스폰서십 기회 제공','선수 파트너십을 통한 미국 시장 진출 지원'];
+  document.getElementById('sp-list').innerHTML = spItems.map(i=>`<li>${i}</li>`).join('');
+
+  // Sophia
+  document.getElementById('ag-lbl').textContent = l==='en'?'Our Agent':'에이전트 소개';
+  const a = SETTINGS.agent;
+  document.getElementById('ag-photo').innerHTML =
+    `<img src="${a.photo}" alt="Sophia Lee" onerror="this.style.opacity=0"/>`;
+  document.getElementById('ag-info').innerHTML = `
+    <h2 class="sophia-name">${a.name}</h2>
+    <p class="sophia-title">${tx(a.title)}</p>
+    <p class="sophia-bio">${tx(a.intro)}</p>
+    <p class="sophia-bio">${tx(a.approach)}</p>
+    <div class="sophia-tags">${tx(a.credentials).map(c=>`<span class="sophia-tag">${c}</span>`).join('')}</div>
+    <div style="margin-top:1.75rem;display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="pages/contact.html" class="btn-primary">${l==='en'?'Book a Call with Sophia':'소피아와 미팅 예약'}</a>
+    </div>`;
+
+  // Recruit
+  document.getElementById('rc-lbl').textContent   = l==='en'?'For Korean Golfers':'한국 골퍼 여러분께';
+  document.getElementById('rc-title').textContent  = l==='en'?'Ready for the World Stage?':'세계 무대에서 뛸 준비가 되셨나요?';
+  document.getElementById('rc-sub').textContent    = l==='en'
+    ? 'If you\'re a Korean or Korean-American golfer looking to compete on the LPGA or PGA Tour, Aurum can help. We provide full career management including P-1 visa processing, sponsorship, and on-tour support.'
+    : 'LPGA 또는 PGA 투어에서 활약하고 싶은 한국 및 재미교포 골퍼라면 Aurum이 함께합니다. P-1 비자 발급, 스폰서십, 투어 현장 지원까지 커리어 전반을 관리합니다.';
+  document.getElementById('rc-note').textContent   = l==='en'?'We welcome inquiries in English and Korean · 한국어 문의 환영합니다':'영어 및 한국어 문의 모두 환영합니다';
+  document.getElementById('rc-cta1').textContent   = l==='en'?'Inquire About Representation':'선수 문의하기';
+  document.getElementById('rc-cta2').textContent   = l==='en'?'Learn About P-1 Visas':'P-1 비자 알아보기';
+}
+
+render();
+document.addEventListener('aurum:lang', render);
+</script>
+</body>
+</html>

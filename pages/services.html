@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Services — Aurum Sports Management</title>
+<meta name="description" content="Explore Aurum services: tour representation, sponsorship acquisition, P-1 visa support, and full career management."/>
+<meta name="theme-color" content="#0B1829"/>
+<meta property="og:title" content="Services — Aurum Sports Management"/>
+<meta property="og:description" content="Tour representation, sponsorship strategy, and P-1 visa support for elite golfers."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://aurumsm.com/pages/services.html"/>
+<meta property="og:image" content="https://aurumsm.com/images/players/kumkang-park.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Services — Aurum Sports Management"/>
+<meta name="twitter:description" content="Tour representation, sponsorship strategy, and P-1 visa support for elite golfers."/>
+<meta name="twitter:image" content="https://aurumsm.com/images/players/kumkang-park.jpg"/>
+<link rel="canonical" href="https://aurumsm.com/pages/services.html"/>
+<link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<nav id="main-nav"></nav>
+<div id="win-banner"></div>
+
+<div class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Home</a><span>›</span><span id="bc"></span></p>
+    <h1 id="ph1"></h1><p id="ph-sub"></p>
+  </div>
+</div>
+
+<!-- REPRESENTATION -->
+<section class="sec sec-dark">
+  <div class="wrap">
+    <span class="lbl" id="rep-lbl"></span>
+    <h2 class="h2 h2-light" id="rep-title"></h2>
+    <p class="sub sub-light" id="rep-sub"></p>
+    <div class="svc-grid" id="svc-grid"></div>
+  </div>
+</section>
+
+<!-- ELITE PACKAGE -->
+<section class="sec sec-white">
+  <div class="wrap">
+    <span class="lbl" id="el-lbl"></span>
+    <h2 class="h2" id="el-title"></h2>
+    <p class="sub" id="el-sub"></p>
+    <div class="elite-grid" id="elite-grid"></div>
+    <div id="addons-box" class="addons-box"></div>
+    <div class="pricing-box" id="pricing-box"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec-sm sec-cream" style="border-top:.5px solid var(--border);text-align:center">
+  <div class="wrap">
+    <h2 class="h2" id="cta-title"></h2>
+    <p class="sub" style="margin:0 auto 2rem" id="cta-sub"></p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="../pages/contact.html" class="btn-primary" id="cta-btn1"></a>
+      <a href="../pages/visa.html"    class="btn-outline" id="cta-btn2"></a>
+    </div>
+  </div>
+</section>
+
+<footer id="main-footer"></footer>
+<script src="../js/data.js"></script>
+<script src="../js/main.js"></script>
+<script>
+Aurum.init('services');
+function render(){
+  const l = Aurum.getLang(); const tx = Aurum.tx.bind(Aurum);
+  const ep = SERVICES.elitePackage;
+
+  document.getElementById('bc').textContent      = l==='en'?'Services':'서비스';
+  document.getElementById('ph1').innerHTML       = l==='en'?'Our <em>Services</em>':'저희 <em>서비스</em>';
+  document.getElementById('ph-sub').textContent  = l==='en'?'Comprehensive management from tour representation to immigration law.':'투어 대리부터 이민법까지 종합 매니지먼트.';
+
+  document.getElementById('rep-lbl').textContent   = l==='en'?'Representation':'선수 대리';
+  document.getElementById('rep-title').textContent  = l==='en'?'What We Offer':'제공 서비스';
+  document.getElementById('rep-sub').textContent    = l==='en'?'Every dimension of a professional golf career — handled.':'프로 골프 커리어의 모든 측면을 처리합니다.';
+  document.getElementById('svc-grid').innerHTML = SERVICES.representation.map(s=>`
+    <div class="svc-card ${s.featured?'feat':''}">
+      <div class="svc-icon">${s.icon}</div>
+      <h3>${tx(s.title)}${s.featured?`<span class="badge-key">${l==='ko'?'핵심':'Key'}</span>`:''}</h3>
+      <p>${tx(s.description)}</p>
+    </div>`).join('');
+
+  document.getElementById('el-lbl').textContent    = l==='en'?'Tour Support':'투어 서포트';
+  document.getElementById('el-title').textContent   = tx(ep.title);
+  document.getElementById('el-sub').textContent     = tx(ep.tagline);
+  document.getElementById('elite-grid').innerHTML = ep.services.map(s=>`
+    <div class="elite-card">
+      <h3>${s.icon} ${tx(s.title)}</h3>
+      <ul>${tx(s.items).map(i=>`<li>${i}</li>`).join('')}</ul>
+    </div>`).join('');
+
+  document.getElementById('addons-box').innerHTML = `
+    <h3>${l==='en'?'Optional Add-On Services':'선택적 추가 서비스'}</h3>
+    <ul>${tx(ep.addOns).map(i=>`<li>${i}</li>`).join('')}</ul>`;
+
+  document.getElementById('pricing-box').innerHTML = `
+    <h3>${l==='en'?'Pricing':'요금 안내'}</h3>
+    <p>${tx(ep.pricingNote)}</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      ${SETTINGS.decks?.elitePackage
+        ? `<a href="../${SETTINGS.decks.elitePackage}" download class="btn-primary">⬇ PDF &nbsp;${l==='en'?'Download Package Details':'패키지 상세 다운로드'}</a>`
+        : ''
+      }
+      <a href="../pages/contact.html" class="btn-outline">${l==='en'?'Request Pricing':'요금 문의'}</a>
+    </div>`;
+
+  document.getElementById('cta-title').textContent = l==='en'?'Ready to Get Started?':'시작할 준비가 되셨나요?';
+  document.getElementById('cta-sub').textContent   = l==='en'?'Contact Sophia to discuss representation, sponsorship, or visa services.':'소피아에게 연락하여 대리, 스폰서십, 비자 서비스를 상담하세요.';
+  document.getElementById('cta-btn1').textContent  = l==='en'?'Contact Us':'문의하기';
+  document.getElementById('cta-btn2').textContent  = l==='en'?'P-1 Visa Info':'P-1 비자 정보';
+}
+render(); document.addEventListener('aurum:lang', render);
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>P-1 Visa Services — Aurum Sports Management</title>
+<meta name="description" content="Aurum Sports Management provides P-1 athlete visa coordination for Korean LPGA and PGA Tour players entering the United States."/>
+<meta name="theme-color" content="#0B1829"/>
+<meta property="og:title" content="P-1 Visa Services — Aurum Sports Management"/>
+<meta property="og:description" content="P-1 athlete visa coordination with licensed U.S. immigration attorney partners."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://aurumsm.com/pages/visa.html"/>
+<meta property="og:image" content="https://aurumsm.com/images/players/mi-hyang-lee.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="P-1 Visa Services — Aurum Sports Management"/>
+<meta name="twitter:description" content="P-1 athlete visa coordination with licensed U.S. immigration attorney partners."/>
+<meta name="twitter:image" content="https://aurumsm.com/images/players/mi-hyang-lee.jpg"/>
+<link rel="canonical" href="https://aurumsm.com/pages/visa.html"/>
+<link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<nav id="main-nav"></nav>
+<div id="win-banner"></div>
+
+<div class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Home</a><span>›</span><span id="bc"></span></p>
+    <h1 id="ph1"></h1><p id="ph-sub"></p>
+  </div>
+</div>
+
+<!-- WHAT IS P-1 -->
+<section class="sec sec-white">
+  <div class="wrap">
+    <span class="lbl" id="w-lbl"></span>
+    <h2 class="h2" id="w-title"></h2>
+    <p class="sub" style="max-width:640px" id="w-sub"></p>
+
+    <!-- 4 STEPS -->
+    <div class="visa-steps" id="visa-steps"></div>
+
+    <!-- ATTORNEY NOTE -->
+    <div style="background:var(--gold3);border:.5px solid rgba(201,151,58,.3);border-radius:var(--r8);padding:1.5rem;margin-top:1.5rem;max-width:640px">
+      <p style="font-size:13px;font-weight:600;color:#7A5A00;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px" id="atty-lbl"></p>
+      <p style="font-size:14px;color:#5A4200;line-height:1.65" id="atty-txt"></p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec-cream">
+  <div class="wrap">
+    <span class="lbl" id="faq-lbl"></span>
+    <h2 class="h2" id="faq-title"></h2>
+    <div class="visa-faq" id="faq-list" style="max-width:680px;margin-top:2rem"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec-sm sec-dark" style="text-align:center">
+  <div class="wrap">
+    <span class="lbl" id="cta-lbl"></span>
+    <h2 class="h2 h2-light" id="cta-title"></h2>
+    <p class="sub sub-light" style="margin:0 auto 2rem" id="cta-sub"></p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="../pages/contact.html" class="btn-primary" id="cta-btn"></a>
+    </div>
+  </div>
+</section>
+
+<footer id="main-footer"></footer>
+<script src="../js/data.js"></script>
+<script src="../js/main.js"></script>
+<script>
+Aurum.init('visa');
+function render(){
+  const l = Aurum.getLang(); const tx = Aurum.tx.bind(Aurum);
+  document.getElementById('bc').textContent      = l==='en'?'P-1 Visa':'P-1 비자';
+  document.getElementById('ph1').innerHTML       = l==='en'?'P-1 <em>Visa Services</em>':'P-1 <em>비자 서비스</em>';
+  document.getElementById('ph-sub').textContent  = l==='en'?'We coordinate athlete visas with licensed US immigration attorneys — so you can focus on golf.':'전문 미국 이민 변호사와 함께 선수 비자를 처리합니다. 선수는 골프에만 집중하세요.';
+
+  document.getElementById('w-lbl').textContent   = l==='en'?'How It Works':'진행 방법';
+  document.getElementById('w-title').textContent  = l==='en'?'Our P-1 Visa Process':'P-1 비자 진행 과정';
+  document.getElementById('w-sub').textContent    = l==='en'
+    ? 'A P-1 visa is a US nonimmigrant visa for internationally recognized athletes. LPGA and Epson Tour players typically qualify. We manage every step with our immigration attorney partners.'
+    : 'P-1 비자는 국제적으로 인정받은 선수를 위한 미국 비이민 비자입니다. LPGA 및 Epson Tour 선수는 일반적으로 자격이 됩니다. 저희 이민 변호사 파트너와 함께 모든 단계를 관리합니다.';
+
+  const steps = l==='en'
+    ? [{n:'01',t:'Eligibility Assessment',d:'We review your tour status, rankings, and career history to confirm P-1 eligibility before starting the process.'},
+       {n:'02',t:'Documentation Preparation',d:'Our attorney partners prepare the full petition package — experience letters, evidence of international recognition, and tour contracts.'},
+       {n:'03',t:'USCIS Filing',d:'We file with USCIS and track your case. Standard processing takes 3–5 months. Premium processing available for 15 business days.'},
+       {n:'04',t:'Approval & Renewal',d:'Once approved we manage renewal timelines so your visa never lapses between tour seasons.'}]
+    : [{n:'01',t:'자격 심사',d:'투어 상태, 랭킹, 커리어를 검토하여 P-1 자격 여부를 확인합니다.'},
+       {n:'02',t:'서류 준비',d:'변호사 파트너가 경력 증명서, 국제적 인지도 증거, 투어 계약서 등 전체 청원 패키지를 준비합니다.'},
+       {n:'03',t:'USCIS 제출',d:'USCIS에 제출 후 케이스를 추적합니다. 일반 처리 3~5개월, 프리미엄 처리 15영업일 가능.'},
+       {n:'04',t:'승인 및 갱신',d:'승인 후 갱신 일정을 관리하여 투어 시즌 사이에 비자가 만료되지 않도록 합니다.'}];
+
+  document.getElementById('visa-steps').innerHTML = steps.map(s=>`
+    <div class="v-step">
+      <div class="step-n">${s.n}</div>
+      <div class="step-t">${s.t}</div>
+      <div class="step-d">${s.d}</div>
+    </div>`).join('');
+
+  document.getElementById('atty-lbl').textContent = l==='en'?'Licensed Attorney Partners':'전문 이민 변호사 파트너';
+  document.getElementById('atty-txt').textContent  = l==='en'
+    ? 'Aurum works directly with licensed US immigration attorneys who specialize in athlete visas. All legal work is handled by qualified counsel — we coordinate, communicate, and keep you informed at every step.'
+    : 'Aurum은 선수 비자 전문 미국 이민 변호사와 직접 협력합니다. 모든 법률 업무는 자격을 갖춘 변호사가 처리하며, 저희는 조율하고 소통하며 매 단계를 안내합니다.';
+
+  document.getElementById('faq-lbl').textContent   = 'FAQ';
+  document.getElementById('faq-title').textContent  = l==='en'?'Frequently Asked Questions':'자주 묻는 질문';
+  document.getElementById('faq-list').innerHTML = VISA_FAQ.map(f=>`
+    <div class="faq-item">
+      <p class="faq-q">${tx(f.q)}</p>
+      <p class="faq-a">${tx(f.a)}</p>
+    </div>`).join('');
+
+  document.getElementById('cta-lbl').textContent   = l==='en'?'Free Consultation':'무료 상담';
+  document.getElementById('cta-title').textContent  = l==='en'?'Ready to Start?':'시작할 준비가 되셨나요?';
+  document.getElementById('cta-sub').textContent    = l==='en'
+    ? 'We offer a free initial visa eligibility consultation for all prospective athletes. Contact Sophia today.'
+    : '모든 선수 지원자에게 무료 초기 비자 자격 상담을 제공합니다. 지금 소피아에게 연락하세요.';
+  document.getElementById('cta-btn').textContent    = l==='en'?'Book Free Consultation':'무료 상담 예약';
+}
+render(); document.addEventListener('aurum:lang', render);
+</script>
+</body>
+</html>
