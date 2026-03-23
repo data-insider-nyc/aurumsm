@@ -60,6 +60,17 @@
 <!-- SPONSOR TIERS -->
 <section class="sec sec-cream">
   <div class="wrap">
+    <span class="lbl" id="sl-lbl"></span>
+    <h2 class="h2" id="sl-title"></h2>
+    <p class="sub" id="sl-sub"></p>
+    <div class="sponsor-logo-grid" id="sponsor-logo-grid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSOR TIERS -->
+<section class="sec sec-white">
+  <div class="wrap">
     <span class="lbl" id="st-lbl"></span>
     <h2 class="h2" id="st-title"></h2>
     <p class="sub" id="st-sub"></p>
@@ -111,6 +122,28 @@ function render(){
   // document.getElementById('ro-title').textContent  = l==='en'?'Current Roster':'현재 선수단';
   // document.getElementById('ro-sub').textContent    = l==='en'?'Click any player to explore their profile and sponsorship availability.':'선수를 클릭하여 프로필과 스폰서십 가능 여부를 확인하세요.';
   // document.getElementById('roster-grid').innerHTML = PLAYERS.map(p=>Aurum.playerCard(p,false)).join('');
+
+  const sponsorLogos = [
+    { name: 'Mizuno', file: 'mizuno.png' },
+    { name: 'Volvik', file: 'volvik.png' },
+    { name: 'Callaway', file: 'callaway.png' },
+    { name: 'PING', file: 'ping.png' },
+    { name: 'LaoLao Bay Golf & Resort', file: 'laolao-bay-golf-and-resort.png' },
+    { name: 'Macaw Golf Wear', file: 'macaw-golf-wear.png' },
+    { name: 'Madcattos Golf Wear', file: 'madcattos-golf-wear.png' },
+    { name: 'Conrad Seoul', file: 'conrad-seoul.png' },
+    { name: 'Haroutine US', file: 'haroutine-us.png' },
+    { name: 'Previnex', file: 'previnex.png' },
+    { name: 'Lexfeel', file: 'lexfeel.png' },
+  ];
+  document.getElementById('sl-lbl').textContent    = l==='en'?'Current Partners':'현재 파트너';
+  document.getElementById('sl-title').textContent  = l==='en'?'Trusted Sponsor Lineup':'스폰서 라인업';
+  document.getElementById('sl-sub').textContent    = l==='en'?'Brands currently partnered with Aurum athletes across golf equipment, apparel, hospitality, wellness, and lifestyle.':'골프 장비, 의류, 리조트, 웰니스, 라이프스타일 분야에서 Aurum 선수들과 함께하는 파트너 브랜드입니다.';
+  document.getElementById('sponsor-logo-grid').innerHTML = sponsorLogos.map(s=>`
+    <div class="sponsor-logo-card" aria-label="${s.name}">
+      <img src="../images/logos/${s.file}" alt="${s.name} logo" loading="lazy" onerror="this.style.display='none'"/>
+      <span class="sponsor-logo-name">${s.name}</span>
+    </div>`).join('');
 
   document.getElementById('st-lbl').textContent   = l==='en'?'Sponsorship Levels':'스폰서십 레벨';
   document.getElementById('st-title').textContent  = l==='en'?'Partnership Tiers':'파트너십 등급';
