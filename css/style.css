@@ -167,9 +167,9 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-he
 .player-card{border:1px solid var(--border);border-radius:var(--r8);overflow:hidden;background:var(--white);transition:transform var(--t),box-shadow var(--t)}
 .player-card:hover{transform:translateY(-5px);box-shadow:var(--sh)}
 .card-link{display:block}
-.card-photo{height:240px;position:relative;overflow:hidden;background:var(--navy3);display:flex;align-items:flex-end}
+.card-photo{aspect-ratio:3/4;position:relative;overflow:hidden;background:var(--navy3);display:flex;align-items:flex-end}
 .card-initial{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:80px;font-weight:500;color:rgba(184,130,42,.15)}
-.card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;transition:opacity var(--t)}
+.card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:opacity var(--t)}
 .card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,24,41,.82) 0%,transparent 55%)}
 .card-foot{position:relative;z-index:1;padding:.9rem 1.1rem;width:100%}
 .card-name{font-family:'Playfair Display',serif;font-size:21px;color:var(--white);line-height:1.2;font-weight:500}
@@ -189,7 +189,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-he
 #modal-body{padding:0 1.75rem 2rem}
 .modal-hero{display:grid;grid-template-columns:240px 1fr;gap:2rem;margin-bottom:2rem}
 .modal-photo{border-radius:var(--r8);overflow:hidden;height:300px;background:var(--navy3);position:relative;display:flex;align-items:center;justify-content:center}
-.modal-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.modal-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
 .modal-initial{position:absolute;font-family:'Playfair Display',serif;font-size:80px;color:rgba(184,130,42,.18);font-weight:500}
 .modal-info{display:flex;flex-direction:column;justify-content:center;gap:.4rem}
 .modal-name{font-size:32px;font-weight:500}
@@ -262,7 +262,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-he
 /* ── SOPHIA ── */
 .sophia-grid{display:grid;grid-template-columns:280px 1fr;gap:3.5rem;align-items:center}
 .sophia-photo{border-radius:var(--r8);overflow:hidden;aspect-ratio:3/4;background:var(--navy3);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:72px;color:rgba(184,130,42,.2)}
-.sophia-photo img{width:100%;height:100%;object-fit:cover}
+.sophia-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
 .sophia-name{font-size:38px;margin-bottom:6px;font-weight:500}
 .sophia-title{font-size:13px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:1.25rem;font-family:'Inter',sans-serif;font-weight:600}
 .sophia-bio{font-size:16px;color:var(--txt2);line-height:1.78;margin-bottom:1.25rem}
@@ -325,7 +325,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-he
 /* ── PLAYER PAGE ── */
 .player-pg-hero{display:grid;grid-template-columns:320px 1fr;gap:3rem;padding:4rem 0;align-items:start}
 .player-pg-photo{border-radius:var(--r8);overflow:hidden;aspect-ratio:3/4;background:var(--navy3);position:relative;display:flex;align-items:center;justify-content:center}
-.player-pg-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.player-pg-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
 .player-pg-initial{position:absolute;font-family:'Playfair Display',serif;font-size:100px;color:rgba(184,130,42,.15);font-weight:500}
 .player-pg-name{font-size:clamp(32px,4vw,52px);margin-bottom:4px;font-weight:500;letter-spacing:-.3px}
 .player-pg-name-ko{font-size:19px;color:var(--txt3);margin-bottom:8px;font-family:'Playfair Display',serif}
@@ -359,12 +359,12 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-he
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .sophia-grid{grid-template-columns:1fr}
-  .sophia-photo{aspect-ratio:16/9;max-height:300px}
+  .sophia-photo{aspect-ratio:3/4;max-height:400px;width:100%;margin:0 auto}
   .sp-split{grid-template-columns:1fr}
   .modal-hero{grid-template-columns:1fr}
-  .modal-photo{height:220px}
+  .modal-photo{aspect-ratio:3/4;height:auto;max-height:400px}
   .player-pg-hero{grid-template-columns:1fr}
-  .player-pg-photo{aspect-ratio:16/9;max-height:300px}
+  .player-pg-photo{aspect-ratio:3/4;max-height:400px}
   .contact-grid{grid-template-columns:1fr}
   .sponsor-tiers{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr 1fr}
