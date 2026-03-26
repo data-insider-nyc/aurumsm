@@ -28,86 +28,41 @@
   </div>
 </div>
 
+<!-- SOPHIA SECTION -->
 <section class="sec sec-white">
   <div class="wrap">
-    <div class="contact-grid">
+    <span class="lbl" id="ag-lbl"></span>
+    <div class="sophia-grid">
+      <div class="sophia-photo" id="ag-photo"></div>
+      <div id="ag-info"></div>
+    </div>
+  </div>
+</section>
 
-      <!-- FORM -->
-      <div>
-        <h2 class="h2" style="margin-bottom:1.75rem" id="form-title"></h2>
-        <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
-          <div class="f-group">
-            <label class="f-label" id="l-name"></label>
-            <input class="f-input" type="text" id="f-name" required/>
-          </div>
-          <div class="f-group">
-            <label class="f-label" id="l-email"></label>
-            <input class="f-input" type="email" id="f-email" required/>
-          </div>
-          <div class="f-group">
-            <label class="f-label" id="l-role"></label>
-            <select class="f-select" id="f-role">
-              <option value="sponsor"  id="o-sponsor"></option>
-              <option value="player"   id="o-player"></option>
-              <option value="media"    id="o-media"></option>
-              <option value="other"    id="o-other"></option>
-            </select>
-          </div>
-          <div class="f-group" id="player-group" style="display:none">
-            <label class="f-label" id="l-player"></label>
-            <select class="f-select" id="f-player">
-              <option value="">--</option>
-            </select>
-          </div>
-          <div class="f-group">
-            <label class="f-label" id="l-msg"></label>
-            <textarea class="f-textarea" id="f-msg"></textarea>
-          </div>
-          <div class="hp-wrap" aria-hidden="true">
-            <label for="f-company">Company</label>
-            <input class="f-input" type="text" id="f-company" name="company" tabindex="-1" autocomplete="off"/>
-          </div>
-          <button type="submit" class="btn-primary" id="f-send" style="align-self:flex-start"></button>
-        </form>
-        <div id="form-success" role="status" aria-live="polite" style="display:none;margin-top:1rem;padding:1rem;background:rgba(45,125,70,.1);border:.5px solid rgba(45,125,70,.3);border-radius:var(--r8);font-size:14px;color:#1a5c30"></div>
+<!-- CONTACT INFO -->
+<section class="sec" style="background:var(--cream)">
+  <div class="wrap">
+    <div style="max-width:600px;margin:0 auto">
+      <h2 class="h2" style="margin-bottom:1.5rem;text-align:center" id="info-title"></h2>
+      <div class="contact-detail">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+        <a href="mailto:Sophia@aurumsm.com">Sophia@aurumsm.com</a>
       </div>
-
-      <!-- INFO -->
-      <div>
-        <h2 class="h2" style="margin-bottom:1.5rem" id="info-title"></h2>
-        <div class="contact-detail">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
-          <a href="mailto:Sophia@aurumsm.com">Sophia@aurumsm.com</a>
-        </div>
-        <div class="contact-detail">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-          <a href="tel:9493787555">949.378.7555</a>
-        </div>
-        <div class="contact-detail">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-          <span id="info-loc"></span>
-        </div>
-        <div class="contact-detail">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-          <span id="info-lang"></span>
-        </div>
-
-        <!-- VISA CALLOUT -->
-        <div class="visa-callout" style="margin-top:2rem">
-          <p class="visa-callout-title" id="vc-title"></p>
-          <p class="visa-callout-text" id="vc-body"></p>
-        </div>
-
-        <!-- SOPHIA PHOTO -->
-        <div style="margin-top:2rem;display:flex;align-items:center;gap:1rem;padding:1.25rem;border:.5px solid var(--border);border-radius:var(--r8);background:var(--cream)">
-          <div style="width:56px;height:56px;border-radius:50%;overflow:hidden;background:var(--navy3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(201,151,58,.4)">
-            <img src="../images/sophia-lee.jpg" alt="Sophia Lee" style="width:100%;height:100%;object-fit:cover" onerror="this.style.opacity=0"/>
-          </div>
-          <div>
-            <p style="font-weight:500;font-size:14px">Sophia Lee</p>
-            <p style="font-size:12px;color:var(--txt3)" id="sophia-title"></p>
-          </div>
-        </div>
+      <div class="contact-detail">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+        <a href="tel:9493787555">949.378.7555</a>
+      </div>
+      <div class="contact-detail">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+        <span id="info-loc"></span>
+      </div>
+      <div class="contact-detail">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+        <span id="info-lang"></span>
+      </div>
+      <div class="visa-callout" style="margin-top:2rem">
+        <p class="visa-callout-title" id="vc-title"></p>
+        <p class="visa-callout-text" id="vc-body"></p>
       </div>
     </div>
   </div>
@@ -119,151 +74,36 @@
 <script>
 Aurum.init('contact');
 
-// Pre-select player/type from URL params
-const params = new URLSearchParams(location.search);
-const prePlayer = params.get('player');
-const preType   = params.get('type');
-
 function render(){
   const l = Aurum.getLang();
-  document.getElementById('bc').textContent       = l==='en'?'Contact':'연락처';
-  document.getElementById('ph1').innerHTML        = l==='en'?'Get in <em>Touch</em>':'<em>연락</em>주세요';
-  document.getElementById('ph-sub').textContent   = l==='en'?'We respond in English and Korean.':'영어 및 한국어로 답변드립니다.';
-  document.getElementById('form-title').textContent= l==='en'?'Send a Message':'메시지 보내기';
-  document.getElementById('l-name').textContent   = l==='en'?'Full Name':'성함';
-  document.getElementById('l-email').textContent  = l==='en'?'Email':'이메일';
-  document.getElementById('l-role').textContent   = l==='en'?'I am a...':'저는...';
-  document.getElementById('o-sponsor').textContent= l==='en'?'Sponsor / Brand':'스폰서 / 브랜드';
-  document.getElementById('o-player').textContent = l==='en'?'Golfer seeking representation':'에이전트 계약을 원하는 골퍼';
-  document.getElementById('o-media').textContent  = l==='en'?'Media / Press':'미디어 / 언론';
-  document.getElementById('o-other').textContent  = l==='en'?'Other':'기타';
-  document.getElementById('l-player').textContent = l==='en'?'Player of Interest':'관심 선수';
-  document.getElementById('l-msg').textContent    = l==='en'?'Message':'메시지';
-  document.getElementById('f-msg').placeholder    = l==='en'?'Tell us about your inquiry...':'문의 내용을 작성해 주세요...';
-  document.getElementById('f-msg').setAttribute('required', 'required');
-  document.getElementById('f-msg').setAttribute('minlength', '12');
-  document.getElementById('f-send').textContent   = l==='en'?'Send Message':'메시지 보내기';
-  document.getElementById('info-title').textContent= l==='en'?'Contact Info':'연락처 정보';
-  document.getElementById('info-loc').textContent  = l==='en'?'Dallas, Texas, USA':'미국 텍사스주 댈러스';
-  document.getElementById('info-lang').textContent = l==='en'?'English & Korean spoken':'한국어 · 영어 상담 가능';
-  document.getElementById('vc-title').textContent  = l==='en'?'P-1 Visa Consultations':'P-1 비자 상담';
-  document.getElementById('vc-body').textContent   = l==='en'?'Free initial eligibility consultation for prospective athletes. We work with licensed immigration attorneys.':'선수 지원자 초기 상담 무료. 전문 이민 변호사와 협력합니다.';
-  document.getElementById('sophia-title').textContent = l==='en'?'Founder & Agent/CEO':'창업자 겸 에이전트/CEO';
-
-  // Populate player select
-  const sel = document.getElementById('f-player');
-  const current = sel.value;
-  sel.innerHTML = `<option value="">-- ${l==='en'?'Select a player':'선수 선택'} --</option>` +
-    PLAYERS.map(p=>`<option value="${p.id}" ${p.id===prePlayer?'selected':''}>${Aurum.tx(p.name)}</option>`).join('');
-}
-
-// Show/hide player field based on role
-document.getElementById('f-role').addEventListener('change', function(){
-  document.getElementById('player-group').style.display =
-    this.value==='sponsor' ? 'flex' : 'none';
-});
-if(preType==='sponsor'){
-  document.getElementById('f-role').value='sponsor';
-  document.getElementById('player-group').style.display='flex';
-}
-
-async function handleSubmit(e){
-  e.preventDefault();
-  const l = Aurum.getLang();
   const tx = Aurum.tx.bind(Aurum);
-  const form = document.getElementById('contact-form');
-  const success = document.getElementById('form-success');
-  const btn = document.getElementById('f-send');
-  const role = document.getElementById('f-role').value;
-  const playerId = document.getElementById('f-player').value;
-  const player = PLAYERS.find(p => p.id === playerId);
 
-  const payload = {
-    name: document.getElementById('f-name').value.trim(),
-    email: document.getElementById('f-email').value.trim(),
-    role,
-    playerId,
-    playerName: player ? tx(player.name) : '',
-    message: document.getElementById('f-msg').value.trim(),
-    companyTrap: document.getElementById('f-company').value.trim(),
-    lang: l,
-    page: location.href,
-    submittedAt: new Date().toISOString()
-  };
+  document.getElementById('bc').textContent      = l==='en'?'Contact':'연락처';
+  document.getElementById('ph1').innerHTML       = l==='en'?'Get in <em>Touch</em>':'<em>연락</em>주세요';
+  document.getElementById('ph-sub').textContent  = l==='en'?'We respond in English and Korean.':'영어 및 한국어로 답변드립니다.';
 
-  if (payload.companyTrap) {
-    return;
-  }
+  // Sophia section
+  document.getElementById('ag-lbl').textContent = l==='en'?'Our Agent':'에이전트 소개';
+  const a = SETTINGS.agent;
+  document.getElementById('ag-photo').innerHTML =
+    `<img src="../${a.photo}" alt="Sophia Lee" onerror="this.style.opacity=0"/>`;
+  document.getElementById('ag-info').innerHTML = `
+    <h2 class="sophia-name">${a.name}</h2>
+    <p class="sophia-title">${tx(a.title)}</p>
+    <p class="sophia-bio">${tx(a.intro)}</p>
+    <p class="sophia-bio" style="margin-top:.75rem">${tx(a.approach)}</p>
+    <div class="sophia-tags">${tx(a.credentials).map(c=>`<span class="sophia-tag">${c}</span>`).join('')}</div>
+    <div style="margin-top:1.75rem;display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="mailto:Sophia@aurumsm.com" class="btn-primary">${l==='en'?'Email Sophia':'소피아에게 이메일'}</a>
+      <a href="tel:9493787555" class="btn-ghost">${l==='en'?'Call 949.378.7555':'전화 949.378.7555'}</a>
+    </div>`;
 
-  if (!payload.name || !payload.email || payload.message.length < 12) {
-    success.style.display = 'block';
-    success.style.background = 'rgba(160,35,35,.08)';
-    success.style.borderColor = 'rgba(160,35,35,.28)';
-    success.style.color = '#7b1b1b';
-    success.textContent = l === 'en'
-      ? 'Please provide your name, email, and a message of at least 12 characters.'
-      : '성함, 이메일, 그리고 12자 이상의 메시지를 입력해 주세요.';
-    return;
-  }
-
-  btn.disabled = true;
-  btn.textContent = l === 'en' ? 'Sending...' : '전송 중...';
-
-  try {
-    if (SETTINGS.contact.formEndpoint) {
-      const res = await fetch(SETTINGS.contact.formEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (!res.ok) throw new Error('Submission failed');
-
-      // Real send succeeded — show confirmation and hide form
-      form.style.display = 'none';
-      success.style.display = 'block';
-      success.style.background = 'rgba(45,125,70,.1)';
-      success.style.borderColor = 'rgba(45,125,70,.3)';
-      success.style.color = '#1a5c30';
-      success.textContent = l==='en'
-        ? '✓ Thank you! Sophia will follow up within 24 hours.'
-        : '✓ 감사합니다! 소피아가 24시간 내에 연락드립니다.';
-      // No endpoint configured — open the user's mail client as a fallback.
-      // Do NOT hide the form or claim success; the message hasn't been sent yet.
-      const subject = encodeURIComponent(`Aurum Inquiry - ${payload.role}${payload.playerName ? ` (${payload.playerName})` : ''}`);
-      const body = encodeURIComponent([
-        `Name: ${payload.name}`,
-        `Email: ${payload.email}`,
-        `Role: ${payload.role}`,
-        payload.playerName ? `Player: ${payload.playerName}` : null,
-        '',
-        payload.message,
-        '',
-        `Submitted from: ${payload.page}`,
-        `Timestamp: ${payload.submittedAt}`
-      ].filter(Boolean).join('\n'));
-      window.open(`mailto:${SETTINGS.contact.email}?subject=${subject}&body=${body}`, '_self');
-      btn.disabled = false;
-      btn.textContent = l === 'en' ? 'Send Message' : '메시지 보내기';
-      success.style.display = 'block';
-      success.style.background = 'rgba(184,130,42,.08)';
-      success.style.borderColor = 'rgba(184,130,42,.3)';
-      success.style.color = '#7A5A00';
-      success.textContent = l === 'en'
-        ? 'Your email client should have opened with the message pre-filled. If nothing happened, email Sophia@aurumsm.com directly.'
-        : '이메일 클라이언트가 열렸을 것입니다. 열리지 않았다면 Sophia@aurumsm.com 으로 직접 이메일 보내주세요.';
-      return;
-    }
-  } catch (_err) {
-    success.style.display = 'block';
-    success.style.background = 'rgba(160,35,35,.08)';
-    success.style.borderColor = 'rgba(160,35,35,.28)';
-    success.style.color = '#7b1b1b';
-    success.textContent = l === 'en'
-      ? 'We could not send your message right now. Please email Sophia@aurumsm.com directly.'
-      : '현재 메시지를 전송할 수 없습니다. Sophia@aurumsm.com 으로 직접 이메일 부탁드립니다.';
-    btn.disabled = false;
-    btn.textContent = l === 'en' ? 'Send Message' : '메시지 보내기';
-  }
+  // Contact info
+  document.getElementById('info-title').textContent = l==='en'?'Contact Info':'연락처 정보';
+  document.getElementById('info-loc').textContent   = l==='en'?'Dallas, Texas, USA':'미국 텍사스주 댈러스';
+  document.getElementById('info-lang').textContent  = l==='en'?'English & Korean spoken':'한국어 · 영어 상담 가능';
+  document.getElementById('vc-title').textContent   = l==='en'?'P-1 Visa Consultations':'P-1 비자 상담';
+  document.getElementById('vc-body').textContent    = l==='en'?'Free initial eligibility consultation for prospective athletes. We work with licensed immigration attorneys.':'선수 지원자 초기 상담 무료. 전문 이민 변호사와 협력합니다.';
 }
 
 render();
