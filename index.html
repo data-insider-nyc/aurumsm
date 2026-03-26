@@ -28,6 +28,7 @@
   <div class="wrap">
     <div class="hero-badge" id="hero-badge"></div>
     <h1 id="hero-h1"></h1>
+    <div class="aurum-def" id="aurum-def"></div>
     <p class="hero-sub" id="hero-sub"></p>
     <div class="hero-ctas">
       <a href="players.html" class="btn-primary" id="h-cta1"></a>
@@ -138,6 +139,9 @@ function render(){
     l==='en' ? 'LPGA · Korean & Korean-American Golfers' : 'LPGA · 한국 및 재미교포 골퍼 전문 에이전시';
   document.getElementById('hero-h1').innerHTML =
     l==='en' ? 'Elevating <em>Champions</em><br>on the World Stage' : '세계 무대에서<br><em>챔피언</em>을 만들다';
+  document.getElementById('aurum-def').innerHTML = l==='en'
+    ? `<span class="aurum-def-word">au·rum</span> <span class="aurum-def-pos">n.</span> <span class="aurum-def-origin">Latin</span> — The Latin word for gold, giving the element symbol <strong>Au</strong>. It translates to <em>"shining dawn"</em> or <em>"glow"</em>, reflecting the metal's color and luster. Historically a symbol of wealth and purity — today synonymous with 24-karat investment gold.`
+    : `<span class="aurum-def-word">au·rum</span> <span class="aurum-def-pos">n.</span> <span class="aurum-def-origin">라틴어</span> — 금(Gold)을 뜻하는 라틴어로, 원소 기호 <strong>Au</strong>의 어원입니다. <em>"빛나는 새벽"</em> 또는 <em>"광채"</em>로 번역되며 금속의 색과 광택을 담고 있습니다. 역사적으로 부와 순수함의 상징이며, 오늘날에는 순금 24캐럿과 동의어로 쓰입니다.`;
   document.getElementById('hero-sub').textContent =
     l==='en' ? 'Aurum Sports Management represents elite Korean and Korean-American professional golfers — connecting athletes with sponsorships, managing visas, and building careers that last.'
              : 'Aurum Sports Management는 한국 및 재미교포 프로 골퍼를 대표합니다. 스폰서십 연결, 비자 지원, 선수 커리어 전략까지 종합 매니지먼트를 제공합니다.';
@@ -213,5 +217,6 @@ function render(){
 render();
 document.addEventListener('aurum:lang', render);
 </script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
