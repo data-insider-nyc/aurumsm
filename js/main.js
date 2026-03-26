@@ -63,6 +63,10 @@ const Aurum = (() => {
             <li><a href="${b}pages/sponsors.html" class="${active === "sponsors" ? "active" : ""}">${tx(TRANSLATIONS.nav.sponsors)}</a></li>
             <li><a href="${b}pages/contact.html"  class="${active === "contact" ? "active" : ""}">${tx(TRANSLATIONS.nav.contact)}</a></li>
           </ul>
+          <div class="lang-toggle">
+            <button class="lang-btn ${_lang === "en" ? "active" : ""}" data-lang="en">EN</button>
+            <button class="lang-btn ${_lang === "ko" ? "active" : ""}" data-lang="ko">한국어</button>
+          </div>
         </div>`;
       el.querySelectorAll(".lang-btn").forEach((b) =>
         b.addEventListener("click", () => setLang(b.dataset.lang)),
